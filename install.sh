@@ -80,7 +80,7 @@ if [ -z $(echo $PATH | grep $HOME/.local/bin) ]; then
         fi
 
         if [ ! -z $PROFILE ] && [ -z $(grep .local/bin $PROFILE) ]; then
-            cat << EOF > $PROFILE
+            cat << EOF >> $PROFILE
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
@@ -105,7 +105,7 @@ SBPFX=$LOCAL/lib/streamer.bot/pfx
 
 if [ ! -z $UNINSTALL ]; then
     [ -d $SBPATH ] && rm -r $SBPATH
-    [ -f $SBBIN/streamer.bot ] && $ rm $SBBIN/streamer.bot
+    [ -f $SBBIN/streamer.bot ] && rm $SBBIN/streamer.bot
     [ -f $SBDESKTOPPATH/streamerbot.desktop ] && rm $SBDESKTOPPATH/streamerbot.desktop
     echo Streamer.bot removed
     exit 0
