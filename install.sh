@@ -80,7 +80,7 @@ if [ -z $(echo $PATH | grep $HOME/.local/bin) ]; then
         fi
 
         if [ ! -z $PROFILE ] && [ -z $(grep .local/bin $PROFILE) ]; then
-            cat << EOF >> $PROFILE
+            cat << 'EOF' >> $PROFILE
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
