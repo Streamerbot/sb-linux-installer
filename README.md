@@ -7,6 +7,8 @@ currently tested distributions:
 * Debian/Ubuntu based
 * Arch based
 
+If the prerequisites are installed already, this script should work on all distributions
+
 # Usage
 
 * Grab the install.sh script, either directly or via git clone.
@@ -18,6 +20,7 @@ currently tested distributions:
 * `streamer.bot` will be installed below `~/.local/bin`
 * uses `~/.local/lib/streamer.bot` for the programm files
 * uses `~/.local/lib/streamer.bot/pfx` for the wine prefix
+* will created a desktop entry via `~/.local/share/applications/streamerbot.desktop`
 
 Make sure `.local/bin` is in your $PATH, e.g. add .local/bin to your $PATH via `.profile` or `.bash_profile` file:
 ```bash
@@ -30,14 +33,14 @@ This script will try to add these lines if possible.
 
 ## Prerequisites
 
-Linux (doh!), with a standard desktop environment, bash, awk, wget, unzip
+Linux (doh!), with a standard desktop environment, bash, awk, curl, wget, unzip
 
 optional: `jq`
 
 If the release will be optained automatically from github `jq` is needed, which will be attempted to be installed automatically.
 If an url or a local file of the release file is provided (see below), installation of `jq` can be skipped.
 
-mandatory: `wine`
+**mandatory**: `wine`
 
 If not found, `wine` will be installed automatically from the repositories, maybe you want to install it manually before, as Ubuntu, Debian, Fedora will probably have outdated versions.
 
@@ -49,7 +52,7 @@ Latest versions in rolling releases available:
 * Arch: pacman -S wine
 * openSuSE: zypper in wine
 
-mandatory: winetricks
+**mandatory**: winetricks
 https://wiki.winehq.org/Winetricks
 https://github.com/Winetricks/winetricks
 
