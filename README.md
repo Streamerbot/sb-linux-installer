@@ -1,7 +1,7 @@
 # Streamer.Bot Linux Install Script
 
 With this script you can easily install the latest version of [Streamer.bot](https://github.com/Streamerbot/Streamer.bot) on Linux.
-It will create a command `streamer.dot` as well as a menu entry via `streamerbot.desktop`
+It will create a command `streamer.bot` as well as a menu entry via `streamerbot.desktop`
 
 currently tested distributions:
 * Debian/Ubuntu based
