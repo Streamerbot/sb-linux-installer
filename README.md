@@ -18,7 +18,7 @@ If the prerequisites are installed already, this script should work on all distr
 
 ## Paths
 * `streamer.bot` will be installed below `~/.local/bin`
-* uses `~/.local/lib/streamer.bot` for the programm files
+* uses `~/.local/lib/streamer.bot` for the program files
 * uses `~/.local/lib/streamer.bot/pfx` for the wine prefix
 * will created a desktop entry via `~/.local/share/applications/streamerbot.desktop`
 
@@ -37,7 +37,7 @@ Linux (doh!), with a standard desktop environment, bash, awk, curl, wget, unzip
 
 optional: `jq`
 
-If the release will be optained automatically from github `jq` is needed, which will be attempted to be installed automatically.
+If the release will be obtained automatically from github `jq` is needed, which will be attempted to be installed automatically.
 If an url or a local file of the release file is provided (see below), installation of `jq` can be skipped.
 
 **mandatory**: `wine`
