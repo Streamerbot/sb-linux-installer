@@ -100,4 +100,4 @@ Try to uninstall (see above) and install from scratch again.
 
 # Notes
 
-Big thanks to [nate1280](https://github.com/nate1280/) who rentlessly works on Streamer.bot and adjusted it to work with wine.
+Big thanks to [nate1280](https://github.com/nate1280/) who relentlessly works on Streamer.bot and adjusted it to work with wine.
