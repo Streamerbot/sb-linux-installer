@@ -94,7 +94,7 @@ UNINSTALL=1 ./install.sh
 
 # Troubleshooting
 
-winetricks takes a while to complete (several minutes). especially if it has to download from web.archive.org.
+Winetricks takes a while to complete (several minutes). especially if it has to download from web.archive.org.
 winetricks might get stuck, if you interrupt it with ctrl+c the script will try to end all remaining wine processes.
 Try to uninstall (see above) and install from scratch again.
 
