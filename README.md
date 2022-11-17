@@ -79,7 +79,7 @@ Alternatively you can also provide a specifc url
 URL=https://cdn.discordapp.com/attachments/879546641051422750/881631757550632970/Streamer.bot-0.1.3-preview4.zip ./install.sh
 ```
 
-# Manuall install
+# Manual install
 
 If you would like to manually install Streamer.bot:
 * create a fresh wine prefix, 32-bit (via WINEARCH=32) or 64-bit (default)
