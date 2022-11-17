@@ -121,7 +121,7 @@ fi
 if [ -z $FILE ]; then
     if [ -z $URL ]; then
         is_installed jq && echo jq is installed
-        URL=$(curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/Streamerbot/Streamer.bot/releases | jq -r ".[0].assets[].browser_download_url")
+        URL=$(curl -s -H https://streamer.bot/api/releases/streamer.bot/latest/download  | jq -r ".[0].assets[].browser_download_url")
     fi
 
     is_installed wget && echo wget is installed
