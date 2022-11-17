@@ -117,11 +117,11 @@ if [ -d $SBPATH ] && [ -z $UPDATE ]; then
     exit 5
 fi
 
-# if not file is given, and no url, grab latest version from github
+# if not file is given, and no url, grab latest version from SB website API
 if [ -z $FILE ]; then
     if [ -z $URL ]; then
         is_installed jq && echo jq is installed
-        URL=$(curl -s -H https://streamer.bot/api/releases/streamer.bot/latest/download  | jq -r ".[0].assets[].browser_download_url")
+        URL="https://streamer.bot/api/releases/streamer.bot/latest/download"
     fi
 
     is_installed wget && echo wget is installed
