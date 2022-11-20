@@ -79,7 +79,7 @@ Alternatively you can also provide a specifc url
 URL=https://cdn.discordapp.com/attachments/879546641051422750/881631757550632970/Streamer.bot-0.1.3-preview4.zip ./install.sh
 ```
 
-# Manuall install
+# Manual install
 
 If you would like to manually install Streamer.bot:
 * create a fresh wine prefix, 32-bit (via WINEARCH=32) or 64-bit (default)
@@ -94,10 +94,10 @@ UNINSTALL=1 ./install.sh
 
 # Troubleshooting
 
-winetricks takes a while to complete (several minutes). especially if it has to download from web.archive.org.
+Winetricks takes a while to complete (several minutes). especially if it has to download from web.archive.org.
 winetricks might get stuck, if you interrupt it with ctrl+c the script will try to end all remaining wine processes.
 Try to uninstall (see above) and install from scratch again.
 
 # Notes
 
-Big thanks to [nate1280](https://github.com/nate1280/) who rentlessly works on Streamer.bot and adjusted it to work with wine.
+Big thanks to [nate1280](https://github.com/nate1280/) who relentlessly works on Streamer.bot and adjusted it to work with wine.
