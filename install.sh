@@ -117,11 +117,13 @@ if [ -d $SBPATH ] && [ -z $UPDATE ]; then
     exit 5
 fi
 
+VERSION="${VERSION:-latest}"
+
 # if not file is given, and no url, grab latest version from SB website API
 if [ -z $FILE ]; then
     if [ -z $URL ]; then
         is_installed jq && echo jq is installed
-        URL="https://streamer.bot/api/releases/streamer.bot/latest/download"
+        URL="https://streamer.bot/api/releases/streamer.bot/${VERSION}/download"
     fi
 
     is_installed wget && echo wget is installed
@@ -164,10 +166,10 @@ is_installed wine && echo wine is installed
 is_installed winetricks && echo winetricks is installed
 
 WINEPREFIX=$SBPFX wineboot
-WINEPREFIX=$SBPFX winetricks -q dotnet472 dxvk d3dcompiler_47
+WINEPREFIX=$SBPFX winetricks -q dotnet48 dxvk d3dcompiler_47 corefonts
 
-# if interrupted by ctrl+c
-if [ "$?" -eq "130" ]; then
+# handle failures
+if [ "$?" -neq 0 ]; then
     echo winetricks failed. killing remaining processes.
     ps -A | grep -i -e wine -e .exe | awk '{ print $1 }' | sort -r | xargs kill -TERM
     ps -A | grep -i -e wine -e .exe | awk '{ print $1 }' | sort -r | xargs kill -KILL

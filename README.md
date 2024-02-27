@@ -68,8 +68,12 @@ UPDATE=1 ./install.sh
 If no other options are given, the script will grab the latest version from github and overwrite the existing files. Can be combined with specifying file location or URL (see below).
 
 # Use local file or specific URL
+To fetch a specific version of Streamer.bot:
+```bash
+VERSION=0.2.0 ./install.sh
+```
 
-If you downloaded Streamer.bot already (e.g. a beta), you can specify the location:
+If you downloaded Streamer.bot already (e.g. a beta), you can specify the `.zip` location:
 ```bash
 FILE=$HOME/Downloads/Streamer.bot-0.1.3-preview4.zip ./install.sh
 ```
