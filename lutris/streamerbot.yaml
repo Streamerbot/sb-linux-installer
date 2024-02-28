@@ -1,0 +1,48 @@
+name: Streamer.bot
+description: Supercharge your live stream with Streamer.bot
+game_slug: streamerbot
+year: 2021
+version: Streamer.bot (Latest)
+slug: streamerbot-latest
+runner: wine
+
+script:
+  game:
+    exe: $GAMEDIR/Streamer.bot.exe
+    prefix: $GAMEDIR/prefix
+    working_dir: $GAMEDIR
+
+  files:
+    - streamerbot:
+        url: https://streamer.bot/api/releases/streamer.bot/latest/download
+        filename: streamerbot.zip
+
+  wine:
+    version: lutris-7.1-x86_64
+
+  installer:
+    - extract:
+        file: streamerbot
+        dst: $GAMEDIR/
+    - task:
+        name: create_prefix
+        description: Creating Wine prefix
+        arch: win64
+        prefix: $GAMEDIR/prefix
+        install_mono: false
+        install_gecko: true
+    - task:
+        name: winetricks
+        description: Installing .NET 4.8 will take a while...
+        app: dotnet48
+        prefix: $GAMEDIR/prefix
+    - task:
+        name: winetricks
+        description: Installing d3dcompiler_47...
+        app: d3dcompiler_47
+        prefix: $GAMEDIR/prefix
+    - task:
+        name: winetricks
+        description: Installing corefonts...
+        app: corefonts
+        prefix: $GAMEDIR/prefix
