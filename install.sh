@@ -169,7 +169,7 @@ WINEPREFIX=$SBPFX wineboot
 WINEPREFIX=$SBPFX winetricks -q dotnet48 dxvk d3dcompiler_47 corefonts
 
 # handle failures
-if [ "$?" -neq 0 ]; then
+if [ "$?" -ne 0 ]; then
     echo winetricks failed. killing remaining processes.
     ps -A | grep -i -e wine -e .exe | awk '{ print $1 }' | sort -r | xargs kill -TERM
     ps -A | grep -i -e wine -e .exe | awk '{ print $1 }' | sort -r | xargs kill -KILL
