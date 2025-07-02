@@ -21,9 +21,9 @@ function check_distro () {
     [ ! -z "$PCKCMD" ] && return 0
     # check distro, arch or debian based
     if [ -f "/etc/os-release" ]; then
-        DISTRO=$(grep ^ID_LIKE= /etc/os-release | awk -F '=' '{ print $2 }')
+        DISTRO=$(grep ^ID_LIKE= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
         if [ -z "$DISTRO" ]; then
-            DISTRO=$(grep ^ID= /etc/os-release | awk -F '=' '{ print $2 }')
+            DISTRO=$(grep ^ID= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
         fi
     fi
 
