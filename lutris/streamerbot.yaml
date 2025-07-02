@@ -17,9 +17,6 @@ script:
         url: https://streamer.bot/api/releases/streamer.bot/latest/download
         filename: streamerbot.zip
 
-  wine:
-    version: lutris-7.1-x86_64
-
   installer:
     - extract:
         file: streamerbot
