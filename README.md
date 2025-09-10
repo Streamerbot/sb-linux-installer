@@ -35,11 +35,6 @@ This script will try to add these lines if possible.
 
 Linux (doh!), with a standard desktop environment, bash, awk, curl, wget, unzip
 
-optional: `jq`
-
-If the release will be obtained automatically from github `jq` is needed, which will be attempted to be installed automatically.
-If an url or a local file of the release file is provided (see below), installation of `jq` can be skipped.
-
 **mandatory**: `wine`
 
 If not found, `wine` will be installed automatically from the repositories, maybe you want to install it manually before, as Ubuntu, Debian, Fedora will probably have outdated versions.

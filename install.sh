@@ -122,7 +122,6 @@ VERSION="${VERSION:-latest}"
 # if not file is given, and no url, grab latest version from SB website API
 if [ -z $FILE ]; then
     if [ -z $URL ]; then
-        is_installed jq && echo jq is installed
         URL="https://streamer.bot/api/releases/streamer.bot/${VERSION}/download"
     fi
 
