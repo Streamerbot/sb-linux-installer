@@ -83,6 +83,11 @@ URL=https://cdn.discordapp.com/attachments/879546641051422750/881631757550632970
 If you would like to manually install Streamer.bot:
 * create a fresh wine 64-bit prefix
 * via winetricks install dotnet48 dxvk and d3dcompiler_47 into that prefix
+* Download and install WebView2:
+```bash
+wget https://github.com/aedancullen/webview2-evergreen-standalone-installer-archive/releases/download/109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+WINEPREFIX=<prefix> wine MicrosoftEdgeWebView2RuntimeInstallerX64.exe /silent /install
+```
 * run Streamer.bot with `WINEPREFIX=<prefix> wine Streamer.bot.exe >/dev/null 2>&1` within the path of the Streamer.bot.exe
 
 # Uninstall

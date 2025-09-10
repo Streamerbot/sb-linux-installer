@@ -153,10 +153,9 @@ if [ "$?" -ne "0" ]; then
     exit 7
 fi
 
-rmtemp
-
 if [ ! -z $UPDATE ]; then
     echo update finished
+    rmtemp
     exit 0
 fi
 
@@ -174,6 +173,19 @@ if [ "$?" -ne 0 ]; then
     ps -A | grep -i -e wine -e .exe | awk '{ print $1 }' | sort -r | xargs kill -KILL
     exit 8
 fi
+
+is_installed wget && echo wget is installed
+wget https://github.com/aedancullen/webview2-evergreen-standalone-installer-archive/releases/download/109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe -O "$TMPDIR"/MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+if [ "$?" -ne "0" ]; then
+    echo downloading WebView2 failed. continuing, but some things won\'t work properly
+else
+    WINEPREFIX=$SBPFX wine "$TMPDIR"/MicrosoftEdgeWebView2RuntimeInstallerX64.exe /silent /install
+    if [ "$?" -ne "0" ]; then
+        echo installing WebView2 failed. continuing, but some things won\'t work properly
+    fi
+fi
+
+rmtemp
 
 # create command
 cat << EOF > $SBBIN/streamer.bot
