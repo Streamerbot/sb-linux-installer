@@ -81,11 +81,13 @@ URL=https://cdn.discordapp.com/attachments/879546641051422750/881631757550632970
 # Manual install
 
 If you would like to manually install Streamer.bot:
-* create a fresh wine prefix, 32-bit (via WINEARCH=32) or 64-bit (default)
-* via winetricks install dotnet472 dxvk and d3dcompiler_47 into that prefix
+* create a fresh wine 64-bit prefix
+* via winetricks install dotnet48 dxvk and d3dcompiler_47 into that prefix
 * run Streamer.bot with `WINEPREFIX=<prefix> wine Streamer.bot.exe >/dev/null 2>&1` within the path of the Streamer.bot.exe
 
 # Uninstall
+
+Make a backup first, or save your config. Uninstall will delete Streamer.bot's folder.
 
 ```bash
 UNINSTALL=1 ./install.sh
