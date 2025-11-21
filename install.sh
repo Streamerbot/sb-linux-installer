@@ -17,33 +17,26 @@
 #          corben78 https://github.com/corben78
 
 function check_distro () {
-    # if check has been done before, return immediately
     [ ! -z "$PCKCMD" ] && return 0
-    # check distro, arch or debian based
+
     if [ -f "/etc/os-release" ]; then
-        DISTRO=$(grep ^ID_LIKE= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
-        if [ -z "$DISTRO" ]; then
-            DISTRO=$(grep ^ID= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
-        fi
+        DISTRO=$(grep -E '^ID(_LIKE)?=' /etc/os-release | head -n1 | cut -d= -f2 | tr -d '"')
     fi
 
     case "$DISTRO" in
-        arch)
-            PCKCMD="pacman -S"
+        arch*|manjaro*|endeavouros*|garuda*|cachyos*)
+            PCKCMD="sudo pacman -S --needed"
             ;;
-        *ubuntu* | *debian*)
-            PCKCMD="apt install"
+        *ubuntu*|*debian*)
+            PCKCMD="sudo apt install -y"
             ;;
         *)
-            unset DISTRO
+            echo "unsupported or unknown distribution ($DISTRO), exiting"
+            exit 2
             ;;
     esac
-
-    if [ -z "$DISTRO" ]; then
-        echo unsupported or unknown distribution, exiting
-        exit 2
-    fi
 }
+
 
 function is_installed () {
     CMD=$1
