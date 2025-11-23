@@ -27,7 +27,7 @@ function check_distro () {
         arch*|manjaro*|endeavouros*|garuda*|cachyos*)
             PCKCMD="sudo pacman -S --needed"
             ;;
-        *ubuntu*|*debian*)
+        *ubuntu*|*debian*|linuxmint*)
             PCKCMD="sudo apt install -y"
             ;;
         *)
