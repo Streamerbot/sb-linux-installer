@@ -17,17 +17,22 @@
 #          corben78 https://github.com/corben78
 
 function check_distro () {
+    # if check has been done before, return immediately
     [ ! -z "$PCKCMD" ] && return 0
-
+    
+    # check distro, arch or debian based
     if [ -f "/etc/os-release" ]; then
-        DISTRO=$(grep -E '^ID(_LIKE)?=' /etc/os-release | head -n1 | cut -d= -f2 | tr -d '"')
+        DISTRO=$(grep ^ID_LIKE= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
+        if [ -z "$DISTRO" ]; then
+            DISTRO=$(grep ^ID= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
+        fi
     fi
-
+    
     case "$DISTRO" in
-        arch*|manjaro*|endeavouros*|garuda*|cachyos*)
+        arch*|garuda*|cachyos*)
             PCKCMD="sudo pacman -S --needed"
             ;;
-        *ubuntu*|*debian*|linuxmint*)
+        *ubuntu*|*debian*)
             PCKCMD="sudo apt install -y"
             ;;
         *)
