@@ -1,7 +1,6 @@
 name: Streamer.bot
 description: Supercharge your live stream with Streamer.bot
 game_slug: streamerbot
-year: 2021
 version: Streamer.bot (Latest)
 slug: streamerbot-latest
 runner: wine
@@ -16,6 +15,9 @@ script:
     - streamerbot:
         url: https://streamer.bot/api/releases/streamer.bot/latest/download
         filename: streamerbot.zip
+    - WebView2:
+        url: https://github.com/aedancullen/webview2-evergreen-standalone-installer-archive/releases/download/109.0.1518.78/MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+        filename: MicrosoftEdgeWebView2RuntimeInstallerX64.exe
 
   installer:
     - extract:
@@ -42,4 +44,9 @@ script:
         name: winetricks
         description: Installing corefonts...
         app: corefonts
+        prefix: $GAMEDIR/prefix
+    - task:
+        name: wineexec
+        description: Installing WebView2...
+        executable: WebView2
         prefix: $GAMEDIR/prefix
