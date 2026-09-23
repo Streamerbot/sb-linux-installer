@@ -20,7 +20,7 @@ function check_distro () {
     # if check has been done before, return immediately
     [ ! -z "$PCKCMD" ] && return 0
     
-    # check distro, arch or debian based
+    # check distro, arch, debian or fedora based
     if [ -f "/etc/os-release" ]; then
         DISTRO=$(grep ^ID_LIKE= /etc/os-release | awk -F '=' '{ print $2 }' | sed 's/^["'\'']//;s/["'\'']$//')
         if [ -z "$DISTRO" ]; then
@@ -34,6 +34,9 @@ function check_distro () {
             ;;
         *ubuntu*|*debian*)
             PCKCMD="sudo apt install -y"
+            ;;
+        *fedora*)
+            PCKCMD="sudo dnf install -y"
             ;;
         *)
             echo "unsupported or unknown distribution ($DISTRO), exiting"

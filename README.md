@@ -6,6 +6,7 @@ It will create a command `streamer.bot` as well as a menu entry via `streamerbot
 currently tested distributions:
 * Debian/Ubuntu based
 * Arch based
+* Fedora based
 
 If the prerequisites are installed already, this script should work on all distributions
 
@@ -52,6 +53,7 @@ https://wiki.winehq.org/Winetricks
 https://github.com/Winetricks/winetricks
 
 * Arch: pacman -S winetricks
+* Fedora: dnf install winetricks
 * openSuSE: zypper in winetricks
 
 # Update
